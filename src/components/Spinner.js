@@ -5,15 +5,15 @@ import styled from 'styled-components';
 
 const Container = styled.div`
 	width: 100%;
-	height: 300px;
+	height: 700px;
 	text-align: center;
 `;
 
 const Wrapper = styled.div`
-	width: 500px;
+	width: 100px;
 	height: 500px;
 	margin: auto;
-	transform: translate(0%, 25%);
+	transform: translate(-150%, 15vh);
 `;
 
 const Spinner = () => {
@@ -21,7 +21,7 @@ const Spinner = () => {
 		<div>
 			<Container>
 				<Wrapper>
-					<JellyfishSpinner size={500} color="#888888" />
+					<JellyfishSpinner size={400} color="#888888" />
 				</Wrapper>
 			</Container>
 		</div>
