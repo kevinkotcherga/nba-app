@@ -20,7 +20,7 @@ const Home = () => {
 				<PlayerTable />
 				<Chart />
 			</Container>
-			{/* <SearchHistory /> */}
+			<SearchHistory />
 		</>
 	);
 };

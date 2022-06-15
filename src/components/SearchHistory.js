@@ -59,8 +59,9 @@ const SearchHistory = () => {
 		window.location.reload();
 	};
 
+	const idFromStorage = localStorage.getItem(localStorage.key('playerId'));
+
 	useEffect(() => {
-		const idFromStorage = localStorage.getItem(localStorage.key('playerId'));
 		let arrayOfIds = [];
 		arrayOfIds.push(idFromStorage);
 		const arrayOfIdsSplit = arrayOfIds[0]?.split(',');
@@ -80,7 +81,7 @@ const SearchHistory = () => {
 			const data = await populateId();
 			setPlayerData(data);
 		})();
-	}, []);
+	}, [idFromStorage]);
 
 	return (
 		<Container>
