@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 
 const Title = styled.div`
 	font-weight: 700;
-	color: #888888;
+	color: #fca311;
 `;
 
 const TextContainer = styled.div`
@@ -86,7 +86,7 @@ const SearchHistory = () => {
 	return (
 		<Container>
 			<Wrapper>
-				<Title>Historique des recherches</Title>
+				<Title>Historique des recherches :</Title>
 				<TextContainer>
 					{playerData
 						?.filter(player => player !== undefined)

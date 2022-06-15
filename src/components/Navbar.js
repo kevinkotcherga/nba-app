@@ -26,11 +26,10 @@ const Right = styled.div`
 `;
 
 const Title = styled.h1`
-	color: #888888;
+	color: #fca311;
 	font-weight: 800;
 	font-size: 2.1rem;
 	&:hover {
-		color: #fca311;
 		cursor: pointer;
 	}
 `;
