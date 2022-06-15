@@ -33,6 +33,10 @@ const Button = styled.button`
 	}
 `;
 
+const Text = styled.p`
+	font-weight: 700;
+`;
+
 const PlayerCard = ({ player }) => {
 	const dispatch = useDispatch();
 	const [dataId, setDataId] = useState();
@@ -56,9 +60,9 @@ const PlayerCard = ({ player }) => {
 
 	return (
 		<Card onClick={getPlayerStats}>
-			<p>
+			<Text>
 				{player?.first_name} {player?.last_name}
-			</p>
+			</Text>
 			{viewable ? (
 				<Button onClick={e => handleClick(e)}>Voir les statistiques</Button>
 			) : (
