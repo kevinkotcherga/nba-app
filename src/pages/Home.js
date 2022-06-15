@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Chart from '../components/Chart';
 import Navbar from '../components/Navbar';
 import PlayerSearchResult from '../components/PlayerSearchResult';
 import PlayerTable from '../components/PlayerTable';
@@ -15,6 +16,7 @@ const Home = () => {
 			<Navbar />
 			<PlayerSearchResult />
 			<PlayerTable />
+			<Chart />
 		</Container>
 	);
 };
