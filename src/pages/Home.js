@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Navbar from '../components/Navbar';
+import PlayerSearchResult from '../components/PlayerSearchResult';
 
 const Container = styled.div`
 	background-color: #212121;
@@ -11,6 +12,7 @@ const Home = () => {
 	return (
 		<Container>
 			<Navbar />
+			<PlayerSearchResult />
 		</Container>
 	);
 };
