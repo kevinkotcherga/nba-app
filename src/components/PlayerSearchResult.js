@@ -15,19 +15,21 @@ const Container = styled.div`
 
 const PlayerSearchResult = () => {
 	const dispatch = useDispatch();
-	const playerName = useSelector(state => state.player.playerList);
+	const playerSearchResult = useSelector(
+		state => state.player.playerSearchResult,
+	);
 	const playerData = useSelector(state => state.player.player);
 
 	useEffect(() => {
-		if (playerName !== null) {
+		if (playerSearchResult !== '') {
 			axios
 				.get(
-					`https://www.balldontlie.io/api/v1/players?search=${playerName}&per_page=10`,
+					`https://www.balldontlie.io/api/v1/players?search=${playerSearchResult}&per_page=10`,
 				)
 				// .then(res => console.log(res.data.data));
 				.then(res => dispatch(setPlayerData(res.data.data)));
 		}
-	}, [dispatch, playerName]);
+	}, [dispatch, playerSearchResult]);
 
 	return (
 		<Container>

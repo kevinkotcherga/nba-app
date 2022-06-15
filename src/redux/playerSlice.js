@@ -5,7 +5,7 @@ export const playerSlice = createSlice({
 	initialState: {
 		player: [],
 		playerId: [],
-		playerList: '',
+		playerSearchResult: '',
 		playerSeasonAverage: [],
 		playerName: [],
 	},
@@ -13,8 +13,8 @@ export const playerSlice = createSlice({
 		setPlayerData: (state, action) => {
 			state.player = action.payload;
 		},
-		setPlayerList: (state, action) => {
-			state.playerList = action.payload;
+		setPlayerSearchResult: (state, action) => {
+			state.playerSearchResult = action.payload;
 		},
 		setPlayerId: (state, action) => {
 			state.playerId.push(action.payload);
@@ -35,7 +35,7 @@ export const playerSlice = createSlice({
 
 export const {
 	setPlayerId,
-	setPlayerList,
+	setPlayerSearchResult,
 	setPlayerData,
 	deletePlayerId,
 	setSeasonAverages,

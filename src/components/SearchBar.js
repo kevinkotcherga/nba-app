@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import styled from 'styled-components';
-import { setPlayerList } from '../redux/playerSlice';
+import { setPlayerSearchResult } from '../redux/playerSlice';
 
 const Form = styled.form``;
 
@@ -59,7 +59,7 @@ const SearchBar = () => {
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		dispatch(setPlayerList(search));
+		dispatch(setPlayerSearchResult(search));
 	};
 
 	return (
