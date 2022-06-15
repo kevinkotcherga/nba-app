@@ -70,11 +70,11 @@ const PlayerTable = () => {
 		})();
 	}, [playerId, dispatch, lookupURLs.playerAverages, lookupURLs.playerName]);
 
-	const mapSeasonAverages = seasonAverages.map(data => data.data[0]);
+	const mapSeasonAverages = seasonAverages.map(data => data?.data[0]);
 
 	const playerData = playerName.map(player => {
 		const matchingScore = mapSeasonAverages.find(
-			score => score.player_id === player.id,
+			score => score?.player_id === player?.id,
 		);
 		return {
 			id: player.id,
@@ -141,35 +141,39 @@ const PlayerTable = () => {
 						<TableBody key={index}>
 							<StyledTableRow>
 								<StyledTableCell component="th" scope="row">
-									{player.first_name + ' ' + player.last_name}
+									{player?.first_name + ' ' + player?.last_name}
 								</StyledTableCell>
 
 								<StyledTableCell align="right">
-									{player.games_played}
+									{player?.games_played}
 								</StyledTableCell>
-								<StyledTableCell align="right">{player.min}</StyledTableCell>
-								<StyledTableCell align="right">{player.fgm}</StyledTableCell>
-								<StyledTableCell align="right">{player.fga}</StyledTableCell>
-								<StyledTableCell align="right">{player.fg3m}</StyledTableCell>
-								<StyledTableCell align="right">{player.fg3a}</StyledTableCell>
-								<StyledTableCell align="right">{player.ftm}</StyledTableCell>
-								<StyledTableCell align="right">{player.fta}</StyledTableCell>
-								<StyledTableCell align="right">{player.oreb}</StyledTableCell>
-								<StyledTableCell align="right">{player.dreb}</StyledTableCell>
-								<StyledTableCell align="right">{player.reb}</StyledTableCell>
-								<StyledTableCell align="right">{player.ast}</StyledTableCell>
-								<StyledTableCell align="right">{player.stl}</StyledTableCell>
-								<StyledTableCell align="right">{player.blk}</StyledTableCell>
+								<StyledTableCell align="right">{player?.min}</StyledTableCell>
+								<StyledTableCell align="right">{player?.fgm}</StyledTableCell>
+								<StyledTableCell align="right">{player?.fga}</StyledTableCell>
+								<StyledTableCell align="right">{player?.fg3m}</StyledTableCell>
+								<StyledTableCell align="right">{player?.fg3a}</StyledTableCell>
+								<StyledTableCell align="right">{player?.ftm}</StyledTableCell>
+								<StyledTableCell align="right">{player?.fta}</StyledTableCell>
+								<StyledTableCell align="right">{player?.oreb}</StyledTableCell>
+								<StyledTableCell align="right">{player?.dreb}</StyledTableCell>
+								<StyledTableCell align="right">{player?.reb}</StyledTableCell>
+								<StyledTableCell align="right">{player?.ast}</StyledTableCell>
+								<StyledTableCell align="right">{player?.stl}</StyledTableCell>
+								<StyledTableCell align="right">{player?.blk}</StyledTableCell>
 								<StyledTableCell align="right">
-									{player.turnover}
+									{player?.turnover}
 								</StyledTableCell>
-								<StyledTableCell align="right">{player.pf}</StyledTableCell>
-								<StyledTableCell align="right">{player.pts}</StyledTableCell>
-								<StyledTableCell align="right">{player.fg_pct}</StyledTableCell>
+								<StyledTableCell align="right">{player?.pf}</StyledTableCell>
+								<StyledTableCell align="right">{player?.pts}</StyledTableCell>
 								<StyledTableCell align="right">
-									{player.fg3_pct}
+									{player?.fg_pct}
 								</StyledTableCell>
-								<StyledTableCell align="right">{player.ft_pct}</StyledTableCell>
+								<StyledTableCell align="right">
+									{player?.fg3_pct}
+								</StyledTableCell>
+								<StyledTableCell align="right">
+									{player?.ft_pct}
+								</StyledTableCell>
 							</StyledTableRow>
 						</TableBody>
 					))}

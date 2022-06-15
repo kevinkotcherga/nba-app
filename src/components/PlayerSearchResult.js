@@ -15,7 +15,7 @@ const Container = styled.div`
 
 const PlayerSearchResult = () => {
 	const dispatch = useDispatch();
-	const playerName = useSelector(state => state.player.playerList.player);
+	const playerName = useSelector(state => state.player.playerList);
 	const playerData = useSelector(state => state.player.player);
 
 	useEffect(() => {
