@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Navbar from '../components/Navbar';
 import PlayerSearchResult from '../components/PlayerSearchResult';
+import PlayerTable from '../components/PlayerTable';
 
 const Container = styled.div`
 	background-color: #212121;
@@ -13,6 +14,7 @@ const Home = () => {
 		<Container>
 			<Navbar />
 			<PlayerSearchResult />
+			<PlayerTable />
 		</Container>
 	);
 };
