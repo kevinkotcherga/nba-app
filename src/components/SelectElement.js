@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -19,7 +19,7 @@ const SelectElement = () => {
 			sx={{
 				backgroundColor: '#ffffff',
 				width: '400px',
-				margin: '30px auto',
+				margin: '50px 80px',
 			}}
 		>
 			<FormControl fullWidth>

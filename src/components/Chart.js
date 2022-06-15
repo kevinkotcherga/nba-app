@@ -11,7 +11,12 @@ import {
 	Legend,
 	ResponsiveContainer,
 } from 'recharts';
+import styled from 'styled-components';
 import SelectElement from './SelectElement';
+
+const Container = styled.div`
+	width: 100%;
+`;
 
 const Chart = () => {
 	const seasonAverages = useSelector(state => state.player.playerSeasonAverage);
@@ -19,7 +24,7 @@ const Chart = () => {
 	const selectValue = useSelector(state => state.select.select);
 
 	return (
-		<div>
+		<Container>
 			{playerId?.length > 0 && (
 				<>
 					<SelectElement />
@@ -38,14 +43,18 @@ const Chart = () => {
 							<CartesianGrid strokeDasharray="3 3" />
 							<XAxis />
 							<YAxis />
-							<Tooltip />
+							<Tooltip cursor={{ fill: 'transparent' }} />
 							<Legend />
-							<Bar dataKey={selectValue} fill="#fca311" />
+							<Bar
+								dataKey={selectValue}
+								fill="#fca311"
+								backgroundColor={'blue'}
+							/>
 						</BarChart>
 					</ResponsiveContainer>
 				</>
 			)}
-		</div>
+		</Container>
 	);
 };
 

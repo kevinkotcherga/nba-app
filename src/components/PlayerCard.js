@@ -9,16 +9,11 @@ const Card = styled.div`
 	color: #acacac;
 	font-weight: 600;
 	width: 150px;
+	padding: 15px;
 	cursor: pointer;
 	text-align: center;
 	border-radius: 5px;
-`;
-
-const ContainerName = styled.div`
 	border: 2px solid #c7c7c7;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	padding: 15px;
 	&:hover {
 		color: #fca311;
 		border: 2px solid #fca311;
@@ -26,17 +21,13 @@ const ContainerName = styled.div`
 `;
 
 const Button = styled.button`
+	margin-top: 20px;
 	background-color: transparent;
 	color: #acacac;
+	padding: 10px;
+	border: 1px solid #c7c7c7;
+	border-radius: 3px;
 	cursor: pointer;
-	border-right: 2px solid #c7c7c7;
-	border-left: 2px solid #c7c7c7;
-	border-bottom: 2px solid #c7c7c7;
-	border-top: none;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-	padding: 5px;
-	width: 100%;
 	&:hover {
 		color: #fca311;
 	}
@@ -64,14 +55,14 @@ const PlayerCard = ({ player }) => {
 	};
 
 	return (
-		<Card>
-			<ContainerName onClick={getPlayerStats}>
-				<p>
-					{player?.first_name} {player?.last_name}
-				</p>
-			</ContainerName>
-			{viewable && (
+		<Card onClick={getPlayerStats}>
+			<p>
+				{player?.first_name} {player?.last_name}
+			</p>
+			{viewable ? (
 				<Button onClick={e => handleClick(e)}>Voir les statistiques</Button>
+			) : (
+				''
 			)}
 		</Card>
 	);
