@@ -5,7 +5,7 @@ import { setPlayerId } from '../redux/playerSlice';
 
 const Card = styled.div`
 	font-size: 1.1rem;
-	background-color: transparent;
+	background-color: #000;
 	color: #acacac;
 	font-weight: 600;
 	width: 150px;
@@ -17,19 +17,6 @@ const Card = styled.div`
 	&:hover {
 		color: #fca311;
 		border: 2px solid #fca311;
-	}
-`;
-
-const Button = styled.button`
-	margin-top: 20px;
-	background-color: transparent;
-	color: #acacac;
-	padding: 10px;
-	border: 1px solid #c7c7c7;
-	border-radius: 3px;
-	cursor: pointer;
-	&:hover {
-		color: #fca311;
 	}
 `;
 
