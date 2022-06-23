@@ -40,12 +40,13 @@ const styles = {
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
 	[`&.${tableCellClasses.head}`]: {
-		backgroundColor: '#212121',
+		backgroundColor: '#000',
 		border: '2px solid #888888',
 		color: theme.palette.common.white,
 	},
 	[`&.${tableCellClasses.body}`]: {
-		fontSize: 14,
+		fontSize: 18,
+		border: 'solid 1px black',
 	},
 }));
 
