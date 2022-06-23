@@ -27,6 +27,10 @@ const TextField = styled.input`
 		color: #888888;
 		align-items: center;
 	}
+	&:-webkit-autofill {
+		-webkit-box-shadow: 0 0 0 1000px #1b1b1b inset !important;
+		-webkit-text-fill-color: white !important;
+	}
 `;
 
 const CustomButton = styled.input`
