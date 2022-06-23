@@ -49,6 +49,7 @@ const Chart = () => {
 								dataKey={selectValue}
 								fill="#fca311"
 								backgroundColor={'blue'}
+								name="Score"
 							/>
 						</BarChart>
 					</ResponsiveContainer>
