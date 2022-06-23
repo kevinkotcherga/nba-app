@@ -41,7 +41,7 @@ const Chart = () => {
 							}}
 						>
 							<CartesianGrid strokeDasharray="3 3" />
-							<XAxis dataKey={'first_name'} />
+							<XAxis dataKey={'full_name'} />
 							<YAxis />
 							<Tooltip cursor={{ fill: 'transparent' }} />
 							<Legend />

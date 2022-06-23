@@ -84,6 +84,7 @@ const PlayerTable = () => {
 			id: player.id,
 			first_name: player.first_name,
 			last_name: player.last_name,
+			full_name: player.first_name + ' ' + player.last_name,
 			games_played: matchingScore?.games_played ?? 0,
 			min: matchingScore?.min ?? 0,
 			fgm: matchingScore?.fgm ?? 0,
@@ -106,6 +107,8 @@ const PlayerTable = () => {
 			ft_pct: matchingScore?.ft_pct ?? 0,
 		};
 	});
+
+	console.log(playerData);
 
 	dispatch(setAllPlayerData(playerData));
 
