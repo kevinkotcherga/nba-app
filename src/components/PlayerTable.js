@@ -15,6 +15,29 @@ import {
 	setPlayerName,
 	setSeasonAverages,
 } from '../redux/playerSlice';
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { useState } from 'react';
+import { additionOfYears } from '../utils/additionOfYears';
+
+const styles = {
+	select: {
+		'.MuiOutlinedInput-notchedOutline': {
+			borderColor: '#888888',
+		},
+		'&:hover .MuiOutlinedInput-notchedOutline': {
+			borderColor: '#888888',
+			borderWidth: '0.15rem',
+		},
+		'&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+			borderColor: '#888888',
+		},
+	},
+};
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
 	[`&.${tableCellClasses.head}`]: {
@@ -41,7 +64,12 @@ const PlayerTable = () => {
 	const playerId = useSelector(state => state.player.playerId);
 	const playerName = useSelector(state => state.player.playerName);
 	const seasonAverages = useSelector(state => state.player.playerSeasonAverage);
+	const [season, setSeason] = useState('2018');
 	const dispatch = useDispatch();
+
+	const handleSeason = e => {
+		setSeason(e.target.value);
+	};
 
 	async function fetchJson(url) {
 		const res = await fetch(url);
@@ -49,8 +77,7 @@ const PlayerTable = () => {
 	}
 
 	const lookupURLs = {
-		playerAverages:
-			'https://www.balldontlie.io/api/v1/season_averages?player_ids[]=',
+		playerAverages: `https://www.balldontlie.io/api/v1/season_averages?season=${season}&player_ids[]=`,
 		playerName: 'https://www.balldontlie.io/api/v1/players/',
 	};
 
@@ -85,6 +112,7 @@ const PlayerTable = () => {
 			first_name: player.first_name,
 			last_name: player.last_name,
 			full_name: player.first_name + ' ' + player.last_name,
+			season: matchingScore?.season ?? 0,
 			games_played: matchingScore?.games_played ?? 0,
 			min: matchingScore?.min ?? 0,
 			fgm: matchingScore?.fgm ?? 0,
@@ -108,20 +136,41 @@ const PlayerTable = () => {
 		};
 	});
 
-	console.log(playerData);
-
 	dispatch(setAllPlayerData(playerData));
 
 	if (seasonAverages.length > 0) {
 		return (
 			<TableContainer
 				component={Paper}
-				style={{ width: '90vw', margin: 'auto' }}
+				style={{ width: '95vw', margin: 'auto' }}
 			>
-				<Table sx={{ minWidth: 700 }} aria-label="customized table">
+				<Table sx={{ width: '100%' }} aria-label="customized table">
 					<TableHead>
 						<TableRow>
 							<StyledTableCell>Nom du joueur</StyledTableCell>
+							<StyledTableCell>
+								<FormControl fullWidth>
+									<InputLabel
+										id="demo-simple-select-label"
+										style={{ color: '#fff' }}
+									>
+										Saison
+									</InputLabel>
+									<Select
+										labelId="demo-simple-select-label"
+										id="demo-simple-select"
+										value={season}
+										label="Age"
+										onChange={handleSeason}
+										sx={styles.select}
+										style={{ color: 'white', backgroundColor: '#000' }}
+									>
+										{additionOfYears().map(year => (
+											<MenuItem value={year}>{year}</MenuItem>
+										))}
+									</Select>
+								</FormControl>
+							</StyledTableCell>
 							<StyledTableCell align="right">parties jouées</StyledTableCell>
 							<StyledTableCell align="right">min</StyledTableCell>
 							<StyledTableCell align="right">fgm</StyledTableCell>
@@ -150,7 +199,9 @@ const PlayerTable = () => {
 								<StyledTableCell component="th" scope="row">
 									{player?.first_name + ' ' + player?.last_name}
 								</StyledTableCell>
-
+								<StyledTableCell align="right">
+									{player?.season}
+								</StyledTableCell>
 								<StyledTableCell align="right">
 									{player?.games_played}
 								</StyledTableCell>
