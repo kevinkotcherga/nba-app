@@ -16,11 +16,10 @@ import {
 	setSeasonAverages,
 } from '../redux/playerSlice';
 import * as React from 'react';
-import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Select from '@mui/material/Select';
 import { useState } from 'react';
 import { additionOfYears } from '../utils/additionOfYears';
 
@@ -30,11 +29,11 @@ const styles = {
 			borderColor: '#888888',
 		},
 		'&:hover .MuiOutlinedInput-notchedOutline': {
-			borderColor: '#888888',
+			borderColor: '#fca311',
 			borderWidth: '0.15rem',
 		},
 		'&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-			borderColor: '#888888',
+			borderColor: '#fca311',
 		},
 	},
 };
