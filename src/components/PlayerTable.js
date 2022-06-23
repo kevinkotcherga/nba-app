@@ -10,7 +10,11 @@ import TableCell, { tableCellClasses } from '@mui/material/TableCell';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { styled } from '@mui/material/styles';
-import { setPlayerName, setSeasonAverages } from '../redux/playerSlice';
+import {
+	setAllPlayerData,
+	setPlayerName,
+	setSeasonAverages,
+} from '../redux/playerSlice';
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
 	[`&.${tableCellClasses.head}`]: {
@@ -103,7 +107,7 @@ const PlayerTable = () => {
 		};
 	});
 
-	console.log(playerData);
+	dispatch(setAllPlayerData(playerData));
 
 	if (seasonAverages.length > 0) {
 		return (

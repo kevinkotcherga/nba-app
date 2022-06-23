@@ -19,7 +19,7 @@ const Container = styled.div`
 `;
 
 const Chart = () => {
-	const seasonAverages = useSelector(state => state.player.playerSeasonAverage);
+	const playerData = useSelector(state => state.player.allPlayerData);
 	const playerId = useSelector(state => state.player.playerId);
 	const selectValue = useSelector(state => state.select.select);
 
@@ -32,7 +32,7 @@ const Chart = () => {
 						<BarChart
 							width={500}
 							height={300}
-							data={seasonAverages?.map(data => data?.data[0])}
+							data={playerData?.map(data => data)}
 							margin={{
 								top: 5,
 								right: 30,
@@ -41,7 +41,7 @@ const Chart = () => {
 							}}
 						>
 							<CartesianGrid strokeDasharray="3 3" />
-							<XAxis />
+							<XAxis dataKey={'first_name'} />
 							<YAxis />
 							<Tooltip cursor={{ fill: 'transparent' }} />
 							<Legend />

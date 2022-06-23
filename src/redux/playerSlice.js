@@ -8,6 +8,7 @@ export const playerSlice = createSlice({
 		playerSearchResult: '',
 		playerSeasonAverage: [],
 		playerName: [],
+		allPlayerData: [],
 	},
 	reducers: {
 		setPlayerData: (state, action) => {
@@ -19,13 +20,12 @@ export const playerSlice = createSlice({
 		setPlayerId: (state, action) => {
 			state.playerId.push(action.payload);
 		},
-		// deletePlayerId: (state, action) => {
-		// 	state.playerId = state.playerId.filter(
-		// 		arrow => arrow.id !== action.payload,
-		// 	);
-		// },
+
 		setSeasonAverages: (state, action) => {
 			state.playerSeasonAverage = action.payload;
+		},
+		setAllPlayerData: (state, action) => {
+			state.allPlayerData = action.payload;
 		},
 		setPlayerName: (state, action) => {
 			state.playerName = action.payload;
@@ -40,5 +40,6 @@ export const {
 	deletePlayerId,
 	setSeasonAverages,
 	setPlayerName,
+	setAllPlayerData,
 } = playerSlice.actions;
 export default playerSlice.reducer;
