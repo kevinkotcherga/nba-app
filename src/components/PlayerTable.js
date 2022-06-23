@@ -88,14 +88,14 @@ const PlayerTable = () => {
 
 		(async () => {
 			const seasonAveragesData = await createPlayerData(playerId =>
-				fetchJson(lookupURLs.playerAverages + playerId.dataId),
+				fetchJson(lookupURLs.playerAverages + playerId),
 			);
 			dispatch(setSeasonAverages(seasonAveragesData));
 		})();
 
 		(async () => {
 			const playerNameData = await createPlayerData(playerId =>
-				fetchJson(lookupURLs.playerName + playerId.dataId),
+				fetchJson(lookupURLs.playerName + playerId),
 			);
 			dispatch(setPlayerName(playerNameData));
 		})();

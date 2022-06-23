@@ -39,23 +39,16 @@ const Text = styled.p`
 
 const PlayerCard = ({ player }) => {
 	const dispatch = useDispatch();
-	const [dataId, setDataId] = useState();
-	const [viewable, setViewable] = useState(false);
 
 	const getPlayerStats = () => {
-		setViewable(true);
-		setDataId(player.id);
-	};
-
-	const handleClick = e => {
-		e.preventDefault();
 		let storedData = window.localStorage.playerId
 			? window.localStorage.playerId.split(',')
 			: [];
 		storedData.push(player.id);
 		window.localStorage.playerId = storedData;
 
-		dispatch(setPlayerId({ dataId }));
+		const id = player.id;
+		dispatch(setPlayerId(id));
 	};
 
 	return (
@@ -63,11 +56,6 @@ const PlayerCard = ({ player }) => {
 			<Text>
 				{player?.first_name} {player?.last_name}
 			</Text>
-			{viewable ? (
-				<Button onClick={e => handleClick(e)}>Voir les statistiques</Button>
-			) : (
-				''
-			)}
 		</Card>
 	);
 };
