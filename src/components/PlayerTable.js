@@ -22,6 +22,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import { useState } from 'react';
 import { additionOfYears } from '../utils/additionOfYears';
+import '../styles/selectTable.scss';
 
 const styles = {
 	select: {
@@ -140,103 +141,113 @@ const PlayerTable = () => {
 
 	if (seasonAverages.length > 0) {
 		return (
-			<TableContainer
-				component={Paper}
-				style={{ width: '95vw', margin: 'auto' }}
-			>
-				<Table sx={{ width: '100%' }} aria-label="customized table">
-					<TableHead>
-						<TableRow>
-							<StyledTableCell>Nom du joueur</StyledTableCell>
-							<StyledTableCell>
-								<FormControl fullWidth>
-									<InputLabel
-										id="demo-simple-select-label"
-										style={{ color: '#fff' }}
-									>
-										Saison
-									</InputLabel>
-									<Select
-										labelId="demo-simple-select-label"
-										id="demo-simple-select"
-										value={season}
-										label="Age"
-										onChange={handleSeason}
-										sx={styles.select}
-										style={{ color: 'white', backgroundColor: '#000' }}
-									>
-										{additionOfYears().map(year => (
-											<MenuItem value={year}>{year}</MenuItem>
-										))}
-									</Select>
-								</FormControl>
-							</StyledTableCell>
-							<StyledTableCell align="right">parties jouées</StyledTableCell>
-							<StyledTableCell align="right">min</StyledTableCell>
-							<StyledTableCell align="right">fgm</StyledTableCell>
-							<StyledTableCell align="right">fga</StyledTableCell>
-							<StyledTableCell align="right">fg3m</StyledTableCell>
-							<StyledTableCell align="right">fg3a</StyledTableCell>
-							<StyledTableCell align="right">ftm</StyledTableCell>
-							<StyledTableCell align="right">fta</StyledTableCell>
-							<StyledTableCell align="right">oreb</StyledTableCell>
-							<StyledTableCell align="right">dreb</StyledTableCell>
-							<StyledTableCell align="right">reb</StyledTableCell>
-							<StyledTableCell align="right">ast</StyledTableCell>
-							<StyledTableCell align="right">stl</StyledTableCell>
-							<StyledTableCell align="right">blk</StyledTableCell>
-							<StyledTableCell align="right">turnover</StyledTableCell>
-							<StyledTableCell align="right">pf</StyledTableCell>
-							<StyledTableCell align="right">pts</StyledTableCell>
-							<StyledTableCell align="right">fg_pct</StyledTableCell>
-							<StyledTableCell align="right">fg3_pct</StyledTableCell>
-							<StyledTableCell align="right">ft_pct</StyledTableCell>
-						</TableRow>
-					</TableHead>
-					{playerData?.map((player, index) => (
-						<TableBody key={index}>
-							<StyledTableRow>
-								<StyledTableCell component="th" scope="row">
-									{player?.first_name + ' ' + player?.last_name}
+			<div className="table">
+				<TableContainer
+					component={Paper}
+					style={{ width: '95vw', margin: 'auto' }}
+				>
+					<Table sx={{ width: '100%' }} aria-label="customized table">
+						<TableHead>
+							<TableRow>
+								<StyledTableCell>Nom du joueur</StyledTableCell>
+								<StyledTableCell>
+									<FormControl fullWidth>
+										<InputLabel
+											id="demo-simple-select-label"
+											style={{ color: '#fff' }}
+										>
+											Saison
+										</InputLabel>
+										<Select
+											labelId="demo-simple-select-label"
+											id="demo-simple-select"
+											value={season}
+											label="Age"
+											onChange={handleSeason}
+											sx={styles.select}
+											style={{ color: 'white', backgroundColor: '#000' }}
+										>
+											{additionOfYears().map(year => (
+												<MenuItem value={year}>{year}</MenuItem>
+											))}
+										</Select>
+									</FormControl>
 								</StyledTableCell>
-								<StyledTableCell align="right">
-									{player?.season}
-								</StyledTableCell>
-								<StyledTableCell align="right">
-									{player?.games_played}
-								</StyledTableCell>
-								<StyledTableCell align="right">{player?.min}</StyledTableCell>
-								<StyledTableCell align="right">{player?.fgm}</StyledTableCell>
-								<StyledTableCell align="right">{player?.fga}</StyledTableCell>
-								<StyledTableCell align="right">{player?.fg3m}</StyledTableCell>
-								<StyledTableCell align="right">{player?.fg3a}</StyledTableCell>
-								<StyledTableCell align="right">{player?.ftm}</StyledTableCell>
-								<StyledTableCell align="right">{player?.fta}</StyledTableCell>
-								<StyledTableCell align="right">{player?.oreb}</StyledTableCell>
-								<StyledTableCell align="right">{player?.dreb}</StyledTableCell>
-								<StyledTableCell align="right">{player?.reb}</StyledTableCell>
-								<StyledTableCell align="right">{player?.ast}</StyledTableCell>
-								<StyledTableCell align="right">{player?.stl}</StyledTableCell>
-								<StyledTableCell align="right">{player?.blk}</StyledTableCell>
-								<StyledTableCell align="right">
-									{player?.turnover}
-								</StyledTableCell>
-								<StyledTableCell align="right">{player?.pf}</StyledTableCell>
-								<StyledTableCell align="right">{player?.pts}</StyledTableCell>
-								<StyledTableCell align="right">
-									{player?.fg_pct}
-								</StyledTableCell>
-								<StyledTableCell align="right">
-									{player?.fg3_pct}
-								</StyledTableCell>
-								<StyledTableCell align="right">
-									{player?.ft_pct}
-								</StyledTableCell>
-							</StyledTableRow>
-						</TableBody>
-					))}
-				</Table>
-			</TableContainer>
+								<StyledTableCell align="right">parties jouées</StyledTableCell>
+								<StyledTableCell align="right">min</StyledTableCell>
+								<StyledTableCell align="right">fgm</StyledTableCell>
+								<StyledTableCell align="right">fga</StyledTableCell>
+								<StyledTableCell align="right">fg3m</StyledTableCell>
+								<StyledTableCell align="right">fg3a</StyledTableCell>
+								<StyledTableCell align="right">ftm</StyledTableCell>
+								<StyledTableCell align="right">fta</StyledTableCell>
+								<StyledTableCell align="right">oreb</StyledTableCell>
+								<StyledTableCell align="right">dreb</StyledTableCell>
+								<StyledTableCell align="right">reb</StyledTableCell>
+								<StyledTableCell align="right">ast</StyledTableCell>
+								<StyledTableCell align="right">stl</StyledTableCell>
+								<StyledTableCell align="right">blk</StyledTableCell>
+								<StyledTableCell align="right">turnover</StyledTableCell>
+								<StyledTableCell align="right">pf</StyledTableCell>
+								<StyledTableCell align="right">pts</StyledTableCell>
+								<StyledTableCell align="right">fg_pct</StyledTableCell>
+								<StyledTableCell align="right">fg3_pct</StyledTableCell>
+								<StyledTableCell align="right">ft_pct</StyledTableCell>
+							</TableRow>
+						</TableHead>
+						{playerData?.map((player, index) => (
+							<TableBody key={index}>
+								<StyledTableRow>
+									<StyledTableCell component="th" scope="row">
+										{player?.first_name + ' ' + player?.last_name}
+									</StyledTableCell>
+									<StyledTableCell align="right">
+										{player?.season}
+									</StyledTableCell>
+									<StyledTableCell align="right">
+										{player?.games_played}
+									</StyledTableCell>
+									<StyledTableCell align="right">{player?.min}</StyledTableCell>
+									<StyledTableCell align="right">{player?.fgm}</StyledTableCell>
+									<StyledTableCell align="right">{player?.fga}</StyledTableCell>
+									<StyledTableCell align="right">
+										{player?.fg3m}
+									</StyledTableCell>
+									<StyledTableCell align="right">
+										{player?.fg3a}
+									</StyledTableCell>
+									<StyledTableCell align="right">{player?.ftm}</StyledTableCell>
+									<StyledTableCell align="right">{player?.fta}</StyledTableCell>
+									<StyledTableCell align="right">
+										{player?.oreb}
+									</StyledTableCell>
+									<StyledTableCell align="right">
+										{player?.dreb}
+									</StyledTableCell>
+									<StyledTableCell align="right">{player?.reb}</StyledTableCell>
+									<StyledTableCell align="right">{player?.ast}</StyledTableCell>
+									<StyledTableCell align="right">{player?.stl}</StyledTableCell>
+									<StyledTableCell align="right">{player?.blk}</StyledTableCell>
+									<StyledTableCell align="right">
+										{player?.turnover}
+									</StyledTableCell>
+									<StyledTableCell align="right">{player?.pf}</StyledTableCell>
+									<StyledTableCell align="right">{player?.pts}</StyledTableCell>
+									<StyledTableCell align="right">
+										{player?.fg_pct}
+									</StyledTableCell>
+									<StyledTableCell align="right">
+										{player?.fg3_pct}
+									</StyledTableCell>
+									<StyledTableCell align="right">
+										{player?.ft_pct}
+									</StyledTableCell>
+								</StyledTableRow>
+							</TableBody>
+						))}
+					</Table>
+				</TableContainer>
+			</div>
 		);
 	}
 };

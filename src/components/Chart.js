@@ -16,6 +16,12 @@ import SelectElement from './SelectElement';
 
 const Container = styled.div`
 	width: 100%;
+	padding: 50px 0 100px 0;
+`;
+
+const Wrapper = styled.div`
+	width: 95%;
+	margin: auto;
 `;
 
 const Chart = () => {
@@ -26,7 +32,7 @@ const Chart = () => {
 	return (
 		<Container>
 			{playerId?.length > 0 && (
-				<>
+				<Wrapper>
 					<SelectElement />
 					<ResponsiveContainer aspect={3}>
 						<BarChart
@@ -53,7 +59,7 @@ const Chart = () => {
 							/>
 						</BarChart>
 					</ResponsiveContainer>
-				</>
+				</Wrapper>
 			)}
 		</Container>
 	);
